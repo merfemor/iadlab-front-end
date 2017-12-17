@@ -6,18 +6,24 @@ import {MainComponent} from './main/main.component';
 import {AuthComponent} from './auth/auth.component';
 import {routes} from "./app.routes";
 import {RouterModule} from "@angular/router";
+import {SigninComponent} from './auth/signin/signin.component';
+import {RegisterComponent} from './auth/register/register.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
     declarations: [
         AppComponent,
         MainComponent,
-        AuthComponent
+        AuthComponent,
+        SigninComponent,
+        RegisterComponent
     ],
     imports: [
         BrowserModule,
         NgbModule.forRoot(),
         RouterModule.forRoot(routes),
+        ReactiveFormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]
