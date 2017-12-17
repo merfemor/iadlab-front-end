@@ -1,1 +1,23 @@
-<canvas id="plate" #canvas>Canvas not supported</canvas>
+<ngvas [width]="400" [height]="400">
+    <ngvas-image fill="rgba(0,0,0,0)" [x]="0" [y]="0" [(width)]="width" [(height)]="height"
+                 src='/assets/plate.png'></ngvas-image>
+
+    <ngvas-text fill="#000000" [textStyle]="{ font: '18px Arial' }" [x]="185" [y]="220" text="0"></ngvas-text>
+    <ngvas-text fill="#000000" [textStyle]="{ font: '18px Arial' }" [x]="185" [y]="210 - 2 * ypxPerCell"
+                text="R"></ngvas-text>
+    <ngvas-text fill="#000000" [textStyle]="{ font: '18px Arial' }" [x]="190 + 2 * xpxPerCell" [y]="220"
+                text="R"></ngvas-text>
+
+
+    <ngvas-arc fill="#004DFF" [x]="200" [y]="200" [radius]="radius * xpxPerCell" [angle]="90" [rotate]="90"
+               [opacity]="0.6" origin="center" [connectToCenter]="true"></ngvas-arc>
+    <ngvas-rectangle fill="#004DFF" [x]="200" [y]="200 - radius * xpxPerCell" [width]="radius * xpxPerCell * 2"
+                     [opacity]="0.6"
+                     [height]="radius * xpxPerCell"></ngvas-rectangle>
+
+    <ngvas-polygon fill="#004DFF" [sides]="[
+        [[200 - xpxPerCell * radius, 200], [200, 200]],
+        [[200, 200], [200, 200 - xpxPerCell * radius * 2]],
+        [[200, 200 - xpxPerCell * radius * 2], [200 - xpxPerCell * radius, 200]]
+     ]" [opacity]="0.6"></ngvas-polygon>
+</ngvas>

@@ -11,6 +11,7 @@ import {RegisterComponent} from './auth/register/register.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {CanvasComponent} from './main/canvas/canvas.component';
 import {ResultTableComponent} from './main/result-table/result-table.component';
+import {NgvasModule} from "ngvas";
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {ResultTableComponent} from './main/result-table/result-table.component';
         BrowserModule,
         NgbModule.forRoot(),
         RouterModule.forRoot(routes),
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgvasModule
     ],
     providers: [],
     bootstrap: [AppComponent]
