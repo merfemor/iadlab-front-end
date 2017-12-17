@@ -10,7 +10,7 @@ export const routes: Routes = [
         // TODO: implement LoggedInResolver
     },
     {
-        path: "join",
+        path: "login",
         component: AuthComponent
     },
     {
