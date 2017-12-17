@@ -3,26 +3,30 @@
         <label for="register-login">Login</label>
         <input formControlName="login" type="text" class="form-control" id="register-login"
                aria-describedby="login-help"
-               placeholder="myawesomelogin">
-        <small id="login-help" class="form-text text-muted">Create login from english letters
+               placeholder="myawesomelogin" maxlength="40"
+               [class.is-invalid]="form.get('login').invalid">
+        <small id="login-help" class="form-text text-muted">
+            Create login from english letters, digits and underscores.
         </small>
     </div>
-    <div class="form-group">
-        <label for="register-password">Password</label>
-        <input formControlName="password" type="password" class="form-control" id="register-password"
-               placeholder="1234567">
-        <small id="password-help" class="form-text text-muted">
-            Create a password of letters, numbers and special characters (like @ or $). <br>
-            And, please, make something stronger than 123456, ok?
-        </small>
-    </div>
-    <div class="form-group">
-        <label for="register-password-confirm">Confirm password</label>
-        <input formControlName="passwordConfirm" type="password" class="form-control" id="register-password-confirm"
-               placeholder="again 1234567">
-        <small id="password-confirm-help" class="form-text text-muted">
-            Repeat, pls
-        </small>
-    </div>
+    <fieldset formGroupName="passwords">
+        <div class="form-group">
+            <label for="register-password">Password</label>
+            <input formControlName="password" type="password" class="form-control" id="register-password"
+                   placeholder="1234567" maxlength="12" [class.is-invalid]="form.get('passwords.password').invalid">
+            <small id="password-help" class="form-text text-muted">
+                Create a password 6 to 12 characters long. <br>
+                English letters, digits and special characters(!@#$%^&*()_+=-) are allowed.
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="register-password-confirm">Confirm password</label>
+            <input formControlName="confirm" type="password" class="form-control" id="register-password-confirm"
+                   placeholder="again 1234567" maxlength="12" [class.is-invalid]="form.get('passwords').invalid">
+            <small id="password-confirm-help" class="form-text text-muted">
+                Repeat, pls
+            </small>
+        </div>
+    </fieldset>
     <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Register</button>
 </form>

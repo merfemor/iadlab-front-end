@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
     selector: 'app-register',
@@ -11,11 +11,26 @@ export class RegisterComponent implements OnInit {
     constructor(private formBuilder: FormBuilder) {
     }
 
+    static confirmPasswordValidator(c: AbstractControl) {
+        if (c.get('password').value !== c.get('confirm').value)
+            return {passwordConfirmValidator: {}};
+        return null;
+    }
+
     ngOnInit(): void {
         this.form = this.formBuilder.group({
-            login: ['', Validators.required],
-            password: ['', Validators.required],
-            passwordConfirm: ['', Validators.required]
+            login: ['', [
+                Validators.required,
+                Validators.pattern("^[a-zA-Z0-9_-]{1,40}$")
+            ]],
+            passwords: this.formBuilder.group({
+                    password: ['', [
+                        Validators.required,
+                        Validators.pattern("^[A-Za-z\\d!@#$%^&*()_+=-]{6,12}$")
+                    ]],
+                    confirm: ['']
+                },
+                {validator: RegisterComponent.confirmPasswordValidator})
         });
     }
 
