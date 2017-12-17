@@ -1,12 +1,75 @@
-<ngb-tabset>
-    <ngb-tab title="Sign In">
-        <ng-template ngbTabContent>
-            here sign in form
-        </ng-template>
-    </ngb-tab>
-    <ngb-tab title="Sign Up">
-        <ng-template ngbTabContent>
-            here sign up form
-        </ng-template>
-    </ngb-tab>
-</ngb-tabset>
+<h1>Point Storage</h1>
+
+<div class="row">
+    <div class="col">
+        <p>
+            Point Storage offers free unlimited (private) repositories for your points.
+        </p>
+
+        <ul>
+            <li>
+                easy create points just by tap on the canvas
+            </li>
+            <li>
+                store your points for many many years
+            </li>
+            <li>
+                and so on...
+            </li>
+        </ul>
+    </div>
+    <div class="col">
+
+        <h3>Login or register for using Point Storage</h3>
+
+        <ngb-tabset>
+            <ngb-tab title="Sign in">
+                <ng-template ngbTabContent>
+                    <form>
+                        <div class="form-group">
+                            <label for="signin-login">Login</label>
+                            <input type="text" class="form-control" id="signin-login" placeholder="Enter your login">
+                        </div>
+                        <div class="form-group">
+                            <label for="signin-password">Password</label>
+                            <input type="password" class="form-control" id="signin-password"
+                                   placeholder="Enter your password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                    </form>
+                </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Register">
+                <ng-template ngbTabContent>
+                    <form>
+                        <div class="form-group">
+                            <label for="register-login">Login</label>
+                            <input type="text" class="form-control" id="register-login" aria-describedby="login-help"
+                                   placeholder="myawesomelogin">
+                            <small id="login-help" class="form-text text-muted">Create login from english letters
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Password</label>
+                            <input type="password" class="form-control" id="register-password"
+                                   placeholder="1234567">
+                            <small id="password-help" class="form-text text-muted">
+                                Create a password of letters, numbers and special characters (like @ or $). <br>
+                                And, please, make something stronger than 123456, ok?
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password-confirm">Confirm password</label>
+                            <input type="password" class="form-control" id="register-password-confirm"
+                                   placeholder="again 1234567">
+                            <small id="password-confirm-help" class="form-text text-muted">
+                                Repeat, pls
+                            </small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </ng-template>
+            </ngb-tab>
+        </ngb-tabset>
+    </div>
+</div>
