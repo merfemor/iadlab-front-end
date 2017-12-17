@@ -1,0 +1,9 @@
+/*::ng-deep canvas {
+    border: 1px solid black;
+}*/
+
+#canvas-div {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}

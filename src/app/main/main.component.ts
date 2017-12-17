@@ -2,7 +2,8 @@ import {Component} from '@angular/core';
 
 @Component({
     selector: 'app-main',
-    template: 'main works'
+    templateUrl: 'main.component.html',
+    styleUrls: ['main.component.css']
 })
 export class MainComponent {
 }

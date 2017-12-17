@@ -9,6 +9,8 @@ import {RouterModule} from "@angular/router";
 import {SigninComponent} from './auth/signin/signin.component';
 import {RegisterComponent} from './auth/register/register.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {CanvasComponent} from './main/canvas/canvas.component';
+import {ResultTableComponent} from './main/result-table/result-table.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import {ReactiveFormsModule} from "@angular/forms";
         MainComponent,
         AuthComponent,
         SigninComponent,
-        RegisterComponent
+        RegisterComponent,
+        CanvasComponent,
+        ResultTableComponent
     ],
     imports: [
         BrowserModule,
