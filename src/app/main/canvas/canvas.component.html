@@ -21,3 +21,13 @@
         [[200, 200 - xpxPerCell * radius * 2], [200 - xpxPerCell * radius, 200]]
      ]" [opacity]="0.6"></ngvas-polygon>
 </ngvas>
+
+<form [formGroup]="form">
+    <div class="form-group row">
+        <label for="r-input" class="col-form-label col-2 text-right">Radius:</label>
+        <div class="col-10">
+            <input formControlName="r" class="form-control" type="range" id="r-input" min="0" max="3.5" step="0.5"
+                   value="1">
+        </div>
+    </div>
+</form>
