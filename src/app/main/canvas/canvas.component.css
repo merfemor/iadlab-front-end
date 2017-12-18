@@ -1,7 +1,10 @@
-#plate {
-    width: 400px;
-    height: 400px;
-    background: url('/assets/plate.png');
+.col {
+    min-width: 200px;
+}
+
+#canvas-div {
+    min-width: 400px;
+    max-width: 400px;
 }
 
 /*

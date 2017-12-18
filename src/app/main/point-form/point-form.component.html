@@ -1,0 +1,27 @@
+<h3 class="pb-2">Add new point</h3>
+
+<form [formGroup]="form">
+    <div class="form-group row">
+        <label for="x-input" class="col-sm-1 col-form-label text-right">X:</label>
+        <div class="col-sm-11">
+            <input formControlName="x" type="number" class="form-control" id="x-input"
+                   aria-describedby="x-help" maxlength="9"
+                   [class.is-invalid]="form.get('login').invalid">
+            <small id="x-help" class="form-text text-muted">
+                x should be from -5 to 5
+            </small>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="y-input" class="col-sm-1 col-form-label text-right">Y:</label>
+        <div class="col-sm-11">
+            <input formControlName="y" type="number" class="form-control" id="y-input"
+                   aria-describedby="y-help" maxlength="9"
+                   [class.is-invalid]="form.get('login').invalid">
+            <small id="y-help" class="form-text text-muted">
+                y should be from -5 to 5
+            </small>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Add point</button>
+</form>

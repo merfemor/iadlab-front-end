@@ -12,6 +12,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {CanvasComponent} from './main/canvas/canvas.component';
 import {ResultTableComponent} from './main/result-table/result-table.component';
 import {NgvasModule} from "ngvas";
+import {PointFormComponent} from './main/point-form/point-form.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {NgvasModule} from "ngvas";
         SigninComponent,
         RegisterComponent,
         CanvasComponent,
-        ResultTableComponent
+        ResultTableComponent,
+        PointFormComponent
     ],
     imports: [
         BrowserModule,

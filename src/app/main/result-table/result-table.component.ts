@@ -1,20 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
     selector: 'app-result-table',
-    template: `
-        <p>
-            result-table works!
-        </p>
-    `,
-    styles: []
+    templateUrl: 'result-table.component.html'
 })
-export class ResultTableComponent implements OnInit {
-
-    constructor() {
-    }
-
-    ngOnInit() {
-    }
-
+export class ResultTableComponent {
 }
