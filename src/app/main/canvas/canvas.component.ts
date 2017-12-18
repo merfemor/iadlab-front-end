@@ -41,10 +41,6 @@ export class CanvasComponent implements OnInit {
         this.pointService.radius = r;
     }
 
-    onChange() {
-        console.log("changes to " + this.radius);
-    }
-
     onClick(event: MouseEvent) {
         this.pointService.addPoint({
             x: this.fromCanvasX(event.offsetX),
