@@ -1,4 +1,4 @@
-<ngvas [width]="400" [height]="400">
+<ngvas [width]="400" [height]="400" (click)="onClick($event)" #canvas>
     <ngvas-image fill="rgba(0,0,0,0)" [x]="0" [y]="0" [(width)]="width" [(height)]="height"
                  src='/assets/plate.png'></ngvas-image>
 
@@ -13,7 +13,7 @@
                [opacity]="0.6" origin="center" [connectToCenter]="true"></ngvas-arc>
     <ngvas-rectangle fill="#004DFF" [x]="200" [y]="200 - radius * xpxPerCell" [width]="radius * xpxPerCell * 2"
                      [opacity]="0.6"
-                     [height]="radius * xpxPerCell"></ngvas-rectangle>
+                     [height]="radius * xpxPerCell" (click)="onClick($event)"></ngvas-rectangle>
 
     <ngvas-polygon fill="#004DFF" [sides]="[
         [[200 - xpxPerCell * radius, 200], [200, 200]],
