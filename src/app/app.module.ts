@@ -15,6 +15,7 @@ import {NgvasModule} from "ngvas";
 import {PointFormComponent} from './main/point-form/point-form.component';
 import {PointService} from "./point.service";
 import {UserService} from "./user.service";
+import {FooterComponent} from './footer/footer.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {UserService} from "./user.service";
         RegisterComponent,
         CanvasComponent,
         ResultTableComponent,
-        PointFormComponent
+        PointFormComponent,
+        FooterComponent
     ],
     imports: [
         BrowserModule,
