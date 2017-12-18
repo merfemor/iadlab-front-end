@@ -20,6 +20,13 @@
         [[200, 200], [200, 200 - xpxPerCell * radius * 2]],
         [[200, 200 - xpxPerCell * radius * 2], [200 - xpxPerCell * radius, 200]]
      ]" [opacity]="0.6"></ngvas-polygon>
+
+    <ng-template ngFor let-point [ngForOf]="this.pointService.points">
+        <ngvas-circle [fill]="color(point)"
+                      [x]="toCanvasX(point.x)" [y]="toCanvasY(point.y)" [radius]="3" origin="center">
+        </ngvas-circle>
+    </ng-template>
+
 </ngvas>
 
 <form [formGroup]="form">

@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {NgvasComponent} from "ngvas/lib/components/ngvas.component";
+import {PointService} from "../../point.service";
 
 @Component({
     selector: 'app-canvas',
@@ -13,12 +14,10 @@ export class CanvasComponent implements OnInit {
     public height = 400;
     public xpxPerCell = this.width / 16.;
     public ypxPerCell = this.height / 16.;
-    public radius = 1;
 
     @ViewChild('canvas') canvas: NgvasComponent;
 
-    constructor(private formBuilder: FormBuilder) {
-    }
+    toCanvasX = x => x * this.xpxPerCell + this.width / 2.;
 
     ngOnInit() {
         this.form = this.formBuilder.group({
@@ -26,14 +25,36 @@ export class CanvasComponent implements OnInit {
         })
     }
 
+    toCanvasY = y => this.width / 2. - y * this.ypxPerCell;
+    fromCanvasX = x => (x - this.width / 2.) / this.xpxPerCell;
+    fromCanvasY = y => (this.width / 2. - y) / this.ypxPerCell;
+
+    constructor(private formBuilder: FormBuilder,
+                public pointService: PointService) {
+    }
+
+    public get radius(): number {
+        return this.pointService.radius;
+    }
+
+    public set radius(r) {
+        this.pointService.radius = r;
+    }
+
     onChange() {
-        console.log(this.radius);
+        console.log("changes to " + this.radius);
     }
 
     onClick(event: MouseEvent) {
-        const x = event.offsetX;
-        const y = event.offsetY;
-        console.log(x + "," + y);
+        this.pointService.addPoint({
+            x: this.fromCanvasX(event.offsetX),
+            y: this.fromCanvasY(event.offsetY)
+        });
     }
 
+    public color(point) {
+        if (this.pointService.isPointInArea(point))
+            return '#00FF00';
+        return '#FF0000';
+    }
 }
