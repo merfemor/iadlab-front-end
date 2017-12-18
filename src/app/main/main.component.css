@@ -1,5 +1,23 @@
 #canvas-div {
-    width: 100%;
-    height: auto;
+    width: 420px;
+    height: 100%;
+    padding: 7px;
     text-align: center;
+}
+
+#content {
+    margin-left: 0;
+}
+
+@media screen and (min-width: 700px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+    }
+
+    #content {
+        margin-left: 430px;
+    }
 }
