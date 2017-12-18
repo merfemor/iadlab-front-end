@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {PointService} from "../../point.service";
 
 @Component({
     selector: 'app-point-form',
@@ -8,7 +9,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class PointFormComponent implements OnInit {
     form: FormGroup;
 
-    constructor(private formBuilder: FormBuilder) {
+    constructor(private formBuilder: FormBuilder, private pointService: PointService) {
     }
 
     ngOnInit() {
@@ -19,7 +20,9 @@ export class PointFormComponent implements OnInit {
     }
 
     onSubmit() {
-
+        const x = this.form.get('x').value;
+        const y = this.form.get('y').value;
+        this.pointService.addPoint({x: x, y: y});
     }
 
 }
