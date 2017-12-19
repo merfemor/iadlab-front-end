@@ -9,6 +9,8 @@
     margin-left: 0;
 }
 
+/*
+
 @media screen and (min-width: 700px) {
     .sidebar {
         position: fixed;
@@ -20,4 +22,4 @@
     #content {
         margin-left: 430px;
     }
-}
+}*/

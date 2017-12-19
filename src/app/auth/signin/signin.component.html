@@ -11,5 +11,5 @@
                placeholder="Enter your password" maxlength="12"
                [class.is-invalid]="form.get('password').invalid">
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Sign in</button>
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid" routerLink="/">Sign in</button>
 </form>

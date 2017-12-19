@@ -16,6 +16,7 @@ import {PointFormComponent} from './main/point-form/point-form.component';
 import {PointService} from "./point.service";
 import {UserService} from "./user.service";
 import {FooterComponent} from './footer/footer.component';
+import {HeaderComponent} from './header/header.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {FooterComponent} from './footer/footer.component';
         CanvasComponent,
         ResultTableComponent,
         PointFormComponent,
-        FooterComponent
+        FooterComponent,
+        HeaderComponent
     ],
     imports: [
         BrowserModule,
