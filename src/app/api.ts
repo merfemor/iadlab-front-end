@@ -3,3 +3,8 @@ class Point {
     x: number;
     y: number;
 }
+
+class User {
+    id?: number;
+    username: string;
+}
