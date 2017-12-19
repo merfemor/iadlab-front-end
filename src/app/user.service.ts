@@ -26,4 +26,8 @@ export class UserService {
             username: login
         };
     }
+
+    public logout() {
+        this._user = null;
+    }
 }
