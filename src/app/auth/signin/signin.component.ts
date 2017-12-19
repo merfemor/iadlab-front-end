@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {UserService} from "../../user.service";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-signin',
@@ -8,7 +10,9 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class SigninComponent implements OnInit {
     form: FormGroup;
 
-    constructor(private formBuilder: FormBuilder) {
+    constructor(private formBuilder: FormBuilder,
+                private userService: UserService,
+                private router: Router) {
     }
 
     ngOnInit(): void {
@@ -19,5 +23,9 @@ export class SigninComponent implements OnInit {
     }
 
     onSubmit(): void {
+        const login = this.form.get('login').value;
+        const password = this.form.get('password').value;
+        this.userService.login(login, password);
+        this.router.navigateByUrl('/');
     }
 }

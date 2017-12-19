@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {UserService} from "../../user.service";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-register',
@@ -8,7 +10,9 @@ import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/form
 export class RegisterComponent implements OnInit {
     form: FormGroup;
 
-    constructor(private formBuilder: FormBuilder) {
+    constructor(private formBuilder: FormBuilder,
+                private userService: UserService,
+                private router: Router) {
     }
 
     static confirmPasswordValidator(c: AbstractControl) {
@@ -35,5 +39,9 @@ export class RegisterComponent implements OnInit {
     }
 
     onSubmit(): void {
+        const login = this.form.get('login').value;
+        const password = this.form.get('passwords.password').value;
+        this.userService.register(login, password);
+        this.router.navigateByUrl('/');
     }
 }

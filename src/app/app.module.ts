@@ -17,6 +17,7 @@ import {PointService} from "./point.service";
 import {UserService} from "./user.service";
 import {FooterComponent} from './footer/footer.component';
 import {HeaderComponent} from './header/header.component';
+import {LoggedInResolver} from "../../app.resolver";
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {HeaderComponent} from './header/header.component';
     ],
     providers: [
         PointService,
-        UserService
+        UserService,
+        LoggedInResolver
     ],
     bootstrap: [AppComponent]
 })

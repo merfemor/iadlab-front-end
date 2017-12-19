@@ -12,14 +12,18 @@ export class UserService {
     }
 
     public isLoggedIn(): boolean {
-        return this._user !== null;
+        return !!this._user;
     }
 
-    public register(username: string, password: string) {
-
+    public register(login: string, password: string) {
+        this._user = {
+            username: login
+        };
     }
 
-    public login(username: string, password: string) {
-
+    public login(login: string, password: string) {
+        this._user = {
+            username: login
+        };
     }
 }
