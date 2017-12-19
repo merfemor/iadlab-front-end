@@ -14,8 +14,8 @@ export class PointFormComponent implements OnInit {
 
     ngOnInit() {
         this.form = this.formBuilder.group({
-            x: ['0', Validators.required],
-            y: ['0', Validators.required]
+            x: ['0', [Validators.required, Validators.min(-5), Validators.max(5)]],
+            y: ['0', [Validators.required, Validators.min(-5), Validators.max(5)]]
         });
     }
 
