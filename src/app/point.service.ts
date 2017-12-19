@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {Point} from "./api";
 
 @Injectable()
 export class PointService {

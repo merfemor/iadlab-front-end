@@ -18,6 +18,7 @@ import {UserService} from "./user.service";
 import {FooterComponent} from './footer/footer.component';
 import {HeaderComponent} from './header/header.component';
 import {LoggedInResolver} from "../../app.resolver";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {LoggedInResolver} from "../../app.resolver";
         NgbModule.forRoot(),
         RouterModule.forRoot(routes),
         ReactiveFormsModule,
-        NgvasModule
+        NgvasModule,
+        HttpClientModule
     ],
     providers: [
         PointService,

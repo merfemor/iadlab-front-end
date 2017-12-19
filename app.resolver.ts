@@ -8,10 +8,7 @@ export class LoggedInResolver {
     }
 
     resolve(): void {
-        console.log(this.userService.isLoggedIn());
         if (!this.userService.isLoggedIn())
             this.router.navigate(['/', 'login']);
-        //else
-        //  this.router.navigate(['/login']);
     }
 }

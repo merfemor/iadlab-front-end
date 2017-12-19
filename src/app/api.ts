@@ -1,10 +1,13 @@
-class Point {
+export const API_URL = 'http://localhost:8080/iad-lab/api/';
+
+export class Point {
     id?: number;
     x: number;
     y: number;
 }
 
-class User {
+export class User {
     id?: number;
-    username: string;
+    login?: string;
+    password?: string;
 }
