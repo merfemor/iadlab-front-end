@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
 })
 export class SigninComponent implements OnInit {
     form: FormGroup;
+    failedToLogin: boolean = false;
 
     constructor(private formBuilder: FormBuilder,
                 private userService: UserService,
@@ -23,13 +24,14 @@ export class SigninComponent implements OnInit {
     }
 
     onSubmit(): void {
+        this.failedToLogin = false;
         const login = this.form.get('login').value;
         const password = this.form.get('password').value;
         this.userService.login(login, password).subscribe((t) => {
             if (t) {
                 this.router.navigateByUrl('/');
             } else {
-                console.log('oops');
+                this.failedToLogin = true;
             }
         }, e => console.log(e));
     }
