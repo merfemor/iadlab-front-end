@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs/Rx";
 import {API_URL, User} from "./api";
 import 'rxjs/add/operator/map';
@@ -33,10 +33,19 @@ export class UserService {
         });
     }
 
-    public login(login: string, password: string) {
-        this._user = {
-            login: login
-        };
+    public login(login: string, password: string): Observable<boolean> {
+        return this.http.get<string>(API_URL + "users/" + login, {
+            params: new HttpParams().set("password", password.toString())
+        }).map(msg => {
+            if (msg === "Incorrect password")
+                return false;
+            this._user = {
+                id: Number(msg),
+                login: login,
+                password: password,
+            };
+            return true;
+        });
     }
 
     public logout() {
