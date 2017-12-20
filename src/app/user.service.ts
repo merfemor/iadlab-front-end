@@ -29,6 +29,7 @@ export class UserService {
                 .set("Content-Type", "text/plain")
         }).map(u => {
             this._user = u;
+            this._user.password = password;
             return u;
         });
     }

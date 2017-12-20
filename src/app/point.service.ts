@@ -1,9 +1,20 @@
 import {Injectable} from '@angular/core';
-import {Point} from "./api";
+import {API_URL, Point} from "./api";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {UserService} from "./user.service";
+import {Observable} from "rxjs/Rx";
+import "rxjs/operators/map";
 
 @Injectable()
 export class PointService {
     private _points: Point[] = [];
+
+    constructor(private http: HttpClient,
+                private userService: UserService) {
+        this.http.get<Point[]>(API_URL + "users/" + this.userService.user.id.toString(10) + "/points/", {
+            params: new HttpParams().set("password", this.userService.user.password)
+        }).subscribe(ps => this._points = ps);
+    }
 
     get points(): Point[] {
         return this._points;
@@ -19,8 +30,16 @@ export class PointService {
         this._radius = value;
     }
 
-    public addPoint(point: Point) {
-        this._points.push(point);
+    public addPoint(point: Point): Observable<Point> {
+        return this.http.post<Point>(
+            API_URL + "users/" + this.userService.user.id.toString(10) + "/points/",
+            point, {
+                headers: new HttpHeaders().set("Content-Type", "text/plain"),
+                params: new HttpParams().set("password", this.userService.user.password)
+            }).map(p => {
+            this._points.push(p);
+            return p;
+        });
     }
 
     public isPointInArea(p: Point): boolean {

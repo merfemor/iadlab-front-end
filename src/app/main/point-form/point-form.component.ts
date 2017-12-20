@@ -22,7 +22,10 @@ export class PointFormComponent implements OnInit {
     onSubmit() {
         const x = this.form.get('x').value;
         const y = this.form.get('y').value;
-        this.pointService.addPoint({x: x, y: y});
+        this.pointService.addPoint({x: x, y: y}).subscribe(() => {
+        }, e => {
+            console.log(e);
+        });
     }
 
 }

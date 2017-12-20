@@ -45,6 +45,9 @@ export class CanvasComponent implements OnInit {
         this.pointService.addPoint({
             x: this.fromCanvasX(event.offsetX),
             y: this.fromCanvasY(event.offsetY)
+        }).subscribe(() => {
+        }, e => {
+            console.log(e);
         });
     }
 
