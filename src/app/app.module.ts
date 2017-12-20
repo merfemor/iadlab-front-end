@@ -19,6 +19,7 @@ import {FooterComponent} from './footer/footer.component';
 import {HeaderComponent} from './header/header.component';
 import {LoggedInResolver} from "../../app.resolver";
 import {HttpClientModule} from "@angular/common/http";
+import {CookieService} from "ngx-cookie-service";
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import {HttpClientModule} from "@angular/common/http";
     providers: [
         PointService,
         UserService,
-        LoggedInResolver
+        LoggedInResolver,
+        CookieService
     ],
     bootstrap: [AppComponent]
 })

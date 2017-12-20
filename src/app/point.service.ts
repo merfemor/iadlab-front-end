@@ -8,16 +8,24 @@ import "rxjs/operators/map";
 @Injectable()
 export class PointService {
     private _points: Point[] = [];
+    private lastUserId = -1;
 
     constructor(private http: HttpClient,
                 private userService: UserService) {
-        this.http.get<Point[]>(API_URL + "users/" + this.userService.user.id.toString(10) + "/points/", {
-            params: new HttpParams().set("password", this.userService.user.password)
-        }).subscribe(ps => this._points = ps);
     }
 
     get points(): Point[] {
+        if (this.userService.isLoggedIn() && this.lastUserId !== this.userService.user.id) {
+            this.reloadPoints();
+            this.lastUserId = this.userService.user.id;
+        }
         return this._points;
+    }
+
+    public reloadPoints() {
+        this.http.get<Point[]>(API_URL + "users/" + this.userService.user.id.toString(10) + "/points/", {
+            params: new HttpParams().set("password", this.userService.user.password)
+        }).subscribe(ps => this._points = ps);
     }
 
     private _radius: number = 1;

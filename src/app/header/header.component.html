@@ -1,6 +1,6 @@
 <nav class="navbar navbar-toggleable-md navbar-light mb-2 bg-light">
     <a class="navbar-brand">Points Storage</a>
-    <a class="navbar-brand">logged as <b>{{userService.user.login}}</b></a>
+    <a class="navbar-brand">logged as <b>{{userService.user?.login}}</b></a>
     <button class="btn btn-outline-primary my-2 my-sm-0" routerLink="/login" type="button"
             (click)="userService.logout()">Log out
     </button>
