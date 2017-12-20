@@ -33,6 +33,8 @@ export class SigninComponent implements OnInit {
             } else {
                 this.failedToLogin = true;
             }
-        }, e => console.log(e));
+        }, e => {
+            this.failedToLogin = true;
+        });
     }
 }

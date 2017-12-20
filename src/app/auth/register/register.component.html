@@ -29,4 +29,8 @@
         </div>
     </fieldset>
     <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Register</button>
+
+    <div class="alert alert-danger mt-3" role="alert" *ngIf="suchLoginExistsOrServerError">
+        User with such login already exists. Please enter a different login.
+    </div>
 </form>

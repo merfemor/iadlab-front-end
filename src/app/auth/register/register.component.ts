@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
 })
 export class RegisterComponent implements OnInit {
     form: FormGroup;
+    suchLoginExistsOrServerError: boolean = false;
 
     constructor(private formBuilder: FormBuilder,
                 private userService: UserService,
@@ -39,12 +40,13 @@ export class RegisterComponent implements OnInit {
     }
 
     onSubmit(): void {
+        this.suchLoginExistsOrServerError = false;
         const login = this.form.get('login').value;
         const password = this.form.get('passwords.password').value;
         this.userService.register(login, password).subscribe(u => {
             this.router.navigateByUrl('/');
         }, (err) => {
-            console.error(err);
+            this.suchLoginExistsOrServerError = true;
         });
     }
 }
